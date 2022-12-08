@@ -16,5 +16,6 @@ class VisualizadorNoticia(Visualizador):
         self.__id_noticia = id_noticia
 
     def construir(self):
-        noticia = self.controlador_noticia.get_noticia()
-        tk.Label(self._root, text=noticia.get_assunto()).pack()
+        # noticia = self.controlador_noticia.get_noticia()
+        # tk.Label(self._root, text=noticia.get_assunto()).pack()
+        pass

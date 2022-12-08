@@ -1,4 +1,5 @@
 from model.modelo_noticia import Noticia
+import datetime
 import json
 
 class ControladorNoticia:
@@ -19,3 +20,40 @@ class ControladorNoticia:
     def get_noticia(self) -> Noticia | None:
         return self.__noticia
     
+    def buscar_noticias_por_filtro(self, filtros):
+        try:
+            inicio = datetime.datetime(*[int(a) for a in filtros["inicio"]])
+        except:
+            inicio = None
+        try:
+            fim = datetime.datetime(*[int(a) for a in filtros["fim"]])
+        except:
+            fim = None
+        assunto = filtros["assunto"]
+        categoria = filtros["categoria"]
+
+        todas = self.get_noticias()
+        if isinstance(todas, str):
+            return todas
+
+        if assunto:
+            todas = [noticia for noticia in todas if noticia.assunto == assunto]
+
+        if categoria and categoria != "Escolha uma categoria":
+            todas = [noticia for noticia in todas if noticia.categoria == categoria.lower()]
+
+        if inicio:
+            todas = [noticia for noticia in todas if noticia.data >= inicio]
+        print(len(todas))
+        if fim:
+            todas = [noticia for noticia in todas if noticia.data <= fim]
+        return todas
+
+    @staticmethod
+    def get_noticias():
+        try:
+            with open("db/noticias.json", "r") as arquivo:
+                noticias = json.load(arquivo)
+                return [Noticia(noticia) for noticia in noticias]
+        except FileNotFoundError:
+            return "DB não encontrado."
