@@ -1,6 +1,6 @@
 import tkinter as tk
-from visualizador import Visualizador
-from controlador_cadastro import ControladorCadastro
+from view.visualizador import Visualizador
+from control.controlador_cadastro import ControladorCadastro
 import random
 
 
