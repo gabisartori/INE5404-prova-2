@@ -4,6 +4,7 @@ import json
 
 class ControladorNoticia:
     def __init__(self):
+        # Composição
         self.__noticia: Noticia | None = None
 
     def conectar_noticia(self, noticia_id: int) -> Noticia | str:
