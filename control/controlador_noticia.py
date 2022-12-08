@@ -44,7 +44,7 @@ class ControladorNoticia:
 
         if inicio:
             todas = [noticia for noticia in todas if noticia.data >= inicio]
-        print(len(todas))
+
         if fim:
             todas = [noticia for noticia in todas if noticia.data <= fim]
         return todas

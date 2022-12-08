@@ -1,4 +1,5 @@
 from view.visualizador import Visualizador
+from view.visualizador_noticia import VisualizadorNoticia
 from control.controlador_noticia import ControladorNoticia
 import tkinter as tk
 
@@ -20,7 +21,11 @@ class VisualizadorMenu(Visualizador):
             }
             noticias = self.controlador.buscar_noticias_por_filtro(filtros)
             for noticia in noticias:
-                tk.Label(caixa, text=noticia.assunto).pack()
+                def callback(noticia=noticia):
+                    self.tela_noticia(noticia.id)
+                tk.Button(caixa, text=noticia.assunto, command=callback).pack()
+        
+        self.limpar_tela()
         tk.Label(self._root, text="Menu", font=("Calibri", 18, "bold")).pack()
 
         # Data início
@@ -67,4 +72,6 @@ class VisualizadorMenu(Visualizador):
             command=atualizar_tela
         ).pack()
     
-    
+    def tela_noticia(self, id):
+        self.limpar_tela()
+        VisualizadorNoticia(id, self, self._root).construir()
