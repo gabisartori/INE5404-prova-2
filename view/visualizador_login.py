@@ -1,6 +1,7 @@
 import tkinter as tk
 from view.visualizador import Visualizador
 from view.visualizador_cadastro import VisualizadorCadastro
+from view.visualizador_noticia import VisualizadorNoticia
 from control.controlador_login import ControladorLogin
 
 
@@ -78,7 +79,7 @@ class VisualizadorLogin(Visualizador):
         # Caso a busca por um usário não tenha retornado uma mensagem de erro
         if not isinstance(usuario, str):
             if usuario.get_senha() == senha:
-                print("logado com sucesso")
+                self.tela_noticia()
             else:
                 self.aviso("Senha incorreta!")
         # Caso a busca por um usário tenha retornado uma mensagem de erro
@@ -86,10 +87,14 @@ class VisualizadorLogin(Visualizador):
             self.aviso(usuario)
 
     def tela_cadastro(self) -> None:
-        """Contrói a tela de cadastro na janela atual, e um botão para voltar ao começo"""
+        """Contrói a tela de cadastro na janela atual"""
         self.limpar_tela()
         VisualizadorCadastro(self, self._root).construir()
 
+    def tela_noticia(self) -> None:
+        """Contrói a tela de notícias na janela atual"""
+        self.limpar_tela()
+        VisualizadorNoticia(self, self._root).construir()
 
 if __name__ == "__main__":
     a = VisualizadorLogin(None)
