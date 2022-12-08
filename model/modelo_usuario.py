@@ -1,21 +1,21 @@
 class Usuario:
     def __init__(self, usuario: dict) -> None:
-        self.__id: int = usuario["id"]
-        self.__nome: str = usuario["nome"]
-        self.__password: str = usuario["password"]
+        self.id: int = usuario["id"]
+        self.nome: str = usuario["nome"]
+        self.senha: str = usuario["senha"]
 
     def get_id(self) -> int:
-        return self.__id
+        return self.id
     
     def get_nome(self) -> str:
-        return self.__nome
+        return self.nome
     
     def set_nome(self, nome: str) -> None:
-        self.__nome = nome
+        self.nome = nome
     
-    def get_password(self) -> str:
-        return self.__password
+    def get_senha(self) -> str:
+        return self.senha
     
-    def set_password(self, password: str) -> None:
-        self.__password = password
+    def set_senha(self, senha: str) -> None:
+        self.senha = senha
     

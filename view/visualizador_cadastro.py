@@ -1,7 +1,6 @@
 import tkinter as tk
 from view.visualizador import Visualizador
 from control.controlador_cadastro import ControladorCadastro
-import random
 
 
 class VisualizadorCadastro(Visualizador):
@@ -93,8 +92,7 @@ class VisualizadorCadastro(Visualizador):
             return
         
         # Realiza o cadastro
-        sal = str(random.randint(1, 1_000_000))
-        cadastro = self.controlador.cadastrar_usuario(nome, sal, self.hash_senha(senha, sal))
+        cadastro = self.controlador.cadastrar_usuario(nome, senha)
         
         # Verifica se o cadastro foi bem sucedido
         if isinstance(cadastro, str):
