@@ -37,10 +37,10 @@ class ControladorNoticia:
             return todas
 
         if assunto:
-            todas = [noticia for noticia in todas if noticia.assunto == assunto]
+            todas = [noticia for noticia in todas if assunto.lower() in noticia.assunto.lower()]
 
         if categoria and categoria != "Escolha uma categoria":
-            todas = [noticia for noticia in todas if noticia.categoria == categoria.lower()]
+            todas = [noticia for noticia in todas if noticia.categoria.lower() == categoria.lower()]
 
         if inicio:
             todas = [noticia for noticia in todas if noticia.data >= inicio]
