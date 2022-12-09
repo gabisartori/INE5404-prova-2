@@ -72,6 +72,16 @@ class VisualizadorMenu(Visualizador):
             command=atualizar_tela
         ).pack()
     
+        if self._parent:
+            tk.Button(
+                self._root,
+                text="Voltar",
+                font=("Calibri", "12"),
+                width=20,
+                command=self._parent.construir
+            ).pack()
+
+
     def tela_noticia(self, id):
         self.limpar_tela()
         VisualizadorNoticia(id, self, self._root).construir()
