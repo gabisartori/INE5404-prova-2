@@ -28,6 +28,7 @@ class VisualizadorNoticia(Visualizador):
             self._root,
             text=noticia.get_texto(),
             font=("Verdana", 12, "italic"),
+            justify="left",
             width=100,
             height=20,
             wraplength=800,

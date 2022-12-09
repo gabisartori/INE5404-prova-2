@@ -51,7 +51,7 @@ class VisualizadorMenu(Visualizador):
 
         # Assunto
         tk.Label(self._root, text="Assunto", font=("Calibri", 12, "bold")).pack()
-        assunto = tk.Entry(self._root, width=25, font=("Verdana", 18, "italic"))
+        assunto = tk.Entry(self._root, width=30, font=("Verdana", 18, "italic"))
         assunto.pack()
 
         # Categoria
