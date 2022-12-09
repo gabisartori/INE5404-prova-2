@@ -23,7 +23,7 @@ class VisualizadorMenu(Visualizador):
             for noticia in noticias:
                 def callback(noticia=noticia):
                     self.tela_noticia(noticia.id)
-                tk.Button(caixa, text=noticia.assunto, command=callback).pack()
+                tk.Button(caixa, width=75, text=noticia.assunto, command=callback).pack()
         
         self.limpar_tela()
         tk.Label(self._root, text="Menu", font=("Calibri", 18, "bold")).pack()
